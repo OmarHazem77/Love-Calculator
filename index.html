@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        button {
+            background: #ff4d6d;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #e63950;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Love Calculator ❤️</h2>
+        <input type="text" id="name1" placeholder="Enter your name">
+        <input type="text" id="name2" placeholder="Enter your crush's name">
+        <button onclick="loveCalc()">Calculate Love 💕</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function loveCalc() {
+            let name1 = document.getElementById("name1").value.trim();
+            let name2 = document.getElementById("name2").value.trim();
+
+            if (name1 === "" || name2 === "") {
+                document.getElementById("result").innerHTML = "Please enter both names!";
+                document.getElementById("result").style.color = "red";
+                return;
+            }
+
+            let n = Math.random() * 100;
+            n = Math.floor(n) + 1;
+
+            let message = `${name1} & ${name2} = ❤️ ${n}%`;
+
+            if (n < 30) {
+                message += " 😢 Not looking good!";
+            } else if (n < 70) {
+                message += " 😊 There is a chance!";
+            } else {
+                message += " 💖 True love!";
+            }
+
+            document.getElementById("result").innerHTML = message;
+            document.getElementById("result").style.color = "black";
+        }
+    </script>
+
+</body>
+</html>
